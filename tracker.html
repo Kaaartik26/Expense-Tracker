@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="tracker.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" type="image/png" href="https://img.icons8.com/?size=100&id=8B6qB3fwWq4G&format=png&color=000000">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-wallet"></i> Expense Tracker</h1>
+        </header>
+        <div class="section income-section">
+            <h2><i class="fas fa-money-bill-wave"></i> Income</h2>
+            <div class="input-group">
+                <label for="income-description">Description</label>
+                <input type="text" id="income-description" placeholder="e.g. Salary" aria-label="Income description">
+            </div>
+            <div class="input-group">
+                <label for="income-amount">Amount</label>
+                <input type="number" id="income-amount" placeholder="e.g. 100000" aria-label="Income amount">
+            </div>
+            <div class="button-group">
+                <button onclick="addIncome()"><i class="fas fa-plus"></i> Add Income</button>
+            </div>
+        </div>
+        <div class="section expense-section">
+            <h2><i class="fas fa-shopping-cart"></i> Expenses</h2>
+            <div class="input-group">
+                <label for="expense-description">Description</label>
+                <input type="text" id="expense-description" placeholder="e.g. Rent" aria-label="Expense description">
+            </div>
+            <div class="input-group">
+                <label for="expense-category">Category</label>
+                <select id="expense-category" aria-label="Expense category">
+                    <option value="Housing">Housing</option>
+                    <option value="Food">Food</option>
+                    <option value="Transportation">Transportation</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="expense-amount">Amount</label>
+                <input type="number" id="expense-amount" placeholder="e.g. 50000" aria-label="Expense amount">
+            </div>
+            <div class="button-group">
+                <button onclick="addExpense()"><i class="fas fa-plus"></i> Add Expense</button>
+            </div>
+        </div>
+        <div class="table-container">
+            <h2><i class="fas fa-history"></i> Transaction History</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Type</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="transaction-history">
+                </tbody>
+            </table>
+        </div>
+        <div class="summary">
+            <h2><i class="fas fa-chart-line"></i> Budget Summary</h2>
+            <p>Total Income: <span id="total-income">0</span></p>
+            <p>Total Expenses: <span id="total-expenses">0</span></p>
+            <p>Balance: <span id="balance">0</span></p>
+        </div>
+        <div class="clear-button-group">
+            <button onclick="clearAll()"><i class="fas fa-trash-alt"></i> Clear All</button>
+        </div>
+    </div>
+    <div class="loading-overlay" id="loading">
+        <div class="loader"></div>
+    </div>
+    <script src="tracker.js"></script>
+</body>
+</html>
